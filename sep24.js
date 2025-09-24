@@ -57,3 +57,4 @@ console.log(total2);
 // })
 // console.log(forReduce)
 
+//my name is jihad
