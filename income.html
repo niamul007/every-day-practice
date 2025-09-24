@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Expanses Tracker</title>
+    <link rel="stylesheet" href="income.css">
+  </head>
+  <body>
+    <div class="container">
+      <h1>Expanse Tracker</h1>
+      <label for="amount">Amount</label>
+      <input type="number" class="amount" id="amount" />
+      <label for="description">Description</label>
+      <input type="text" class="description" id="description" />
+      <button class="add-income">Add</button>
+    </div>
+    <div class="show-data">
+      <div class="show-current">
+        <h2>Income Details</h2>
+        <h3>Total Expanses: <span class="total-expanses">0</span></h3>
+        <h3>Balance: <span class="balance">0</span></h3>
+        <button class="clear-data">Clear All</button>
+      </div>
+
+      <div class="lists">
+        <span>Income List </span>
+        <ul class="income-list"></ul>
+        <span>Expanse List </span>
+        <ul class="expanse-list"></ul>
+      </div>
+    </div>
+    <script src="income.js"></script>
+  </body>
+</html>

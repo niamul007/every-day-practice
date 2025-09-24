@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>To Do App</title>
+    <style>
+      /* ===== Reset / Base ===== */
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        background-color: #f4f4f9;
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        min-height: 100vh;
+        padding: 50px 20px;
+        color: #333;
+      }
+
+      /* ===== Container ===== */
+      .container {
+        background-color: #fff;
+        padding: 30px 25px;
+        border-radius: 12px;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
+        width: 100%;
+        max-width: 400px;
+        text-align: center;
+      }
+
+      .title {
+        font-size: 2rem;
+        margin-bottom: 25px;
+        color: #333;
+      }
+
+      /* ===== Input and Add Button ===== */
+      .taskInput {
+        width: calc(100% - 110px);
+        padding: 10px 12px;
+        font-size: 1rem;
+        border: 1px solid #ccc;
+        border-radius: 6px;
+        outline: none;
+        transition: border-color 0.2s;
+      }
+
+      .taskInput:focus {
+        border-color: #5c6bc0;
+      }
+
+      .addTask {
+        padding: 10px 15px;
+        font-size: 1rem;
+        background-color: #5c6bc0;
+        color: #fff;
+        border: none;
+        border-radius: 6px;
+        cursor: pointer;
+        margin-left: 5px;
+        transition: background 0.2s;
+      }
+
+      .addTask:hover {
+        background-color: #3f51b5;
+      }
+
+      /* ===== Task List ===== */
+      .taskList {
+        list-style: none;
+        padding: 0;
+        margin-top: 20px;
+      }
+
+      /* .list-item {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        background-color: #fafafa;
+        padding: 10px 12px;
+        margin-bottom: 10px;
+        border-radius: 8px;
+        border: 1px solid #eee;
+        transition: background 0.2s;
+      } */
+
+      .list-item:hover {
+        background-color: #f0f0f0;
+      }
+
+      /* ===== Task Text ===== */
+      /* .list-item-txt {
+        flex: 1;
+        text-align: left;
+        font-size: 1rem;
+        font-family: "Courier New", Courier, monospace;
+      } */
+
+      .list-item {
+        display: flex;
+        align-items: flex-start; /* top-align text and buttons */
+        justify-content: space-between;
+        background-color: #fafafa;
+        padding: 10px 12px;
+        margin-bottom: 10px;
+        border-radius: 8px;
+        border: 1px solid #eee;
+        transition: background 0.2s;
+        word-wrap: break-word; /* allows long words to break */
+      }
+
+      .list-item-txt {
+        flex: 1;
+        text-align: left;
+        font-size: 1rem;
+        font-family: "Courier New", Courier, monospace;
+        white-space: pre-wrap; /* wrap text, preserve spaces */
+        word-break: break-word; /* break long words if needed */
+        margin-right: 10px; /* space between text and buttons */
+      }
+
+      /* ===== Buttons ===== */
+      .done-btn,
+      .delete-btn {
+        padding: 4px 10px;
+        font-size: 0.85rem;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        margin-left: 8px;
+        transition: opacity 0.2s;
+      }
+
+      .done-btn {
+        background-color: #4caf50;
+        color: #fff;
+      }
+
+      .done-btn:hover {
+        opacity: 0.8;
+      }
+
+      .delete-btn {
+        background-color: #f44336;
+        color: #fff;
+      }
+
+      .delete-btn:hover {
+        opacity: 0.8;
+      }
+
+      /* ===== Done Task Style ===== */
+      .done {
+        text-decoration: line-through;
+        color: green;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1 class="title">TO DO LIST</h1>
+      <input type="text" class="taskInput" placeholder="Add a new task" />
+      <button class="addTask">Add Task</button>
+      <ul class="taskList"></ul>
+    </div>
+    <script src="todo.js"></script>
+  </body>
+</html>

@@ -1,0 +1,162 @@
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #74ebd5, #9face6);
+  margin: 0;
+  padding: 40px 20px;
+  color: #333;
+}
+
+.container {
+  max-width: 600px;
+  margin: auto;
+  background: #fff;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.container:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+}
+
+h1 {
+  text-align: center;
+  color: #444;
+  margin-bottom: 25px;
+}
+
+label {
+  display: block;
+  margin: 12px 0 6px;
+  font-weight: 600;
+}
+
+input[type="number"],
+input[type="text"] {
+  width: 100%;
+  padding: 12px 15px;
+  margin-bottom: 15px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  outline: none;
+  font-size: 15px;
+  transition: border 0.3s, box-shadow 0.3s;
+}
+
+input:focus {
+  border: 1px solid #6c63ff;
+  box-shadow: 0 0 8px rgba(108, 99, 255, 0.3);
+}
+
+button {
+  padding: 12px 18px;
+  background-color: #6c63ff;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 15px;
+  font-weight: 600;
+  transition: background 0.3s, transform 0.2s;
+}
+
+button:hover {
+  background-color: #5146d9;
+  transform: translateY(-2px);
+}
+
+.show-data {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+  margin-top: 30px;
+}
+
+.show-current,
+.lists {
+  flex: 1 1 280px;
+  background: #fff;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+}
+
+.show-current h2 {
+  text-align: center;
+  margin-bottom: 15px;
+  color: #444;
+}
+
+.show-current h3 {
+  margin: 10px 0;
+  font-weight: 500;
+}
+
+.income-list,
+.expanse-list {
+  list-style-type: none;
+  padding: 0;
+  margin-top: 15px;
+}
+
+.income-list li,
+.expanse-list li {
+  background: #f7f8fc;
+  margin: 6px 0;
+  padding: 10px 14px;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 500;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: transform 0.2s;
+}
+
+.income-list li {
+  border-left: 4px solid #28a745;
+  color: #2d7a36;
+}
+
+.expanse-list li {
+  border-left: 4px solid #dc3545;
+  color: #b02a37;
+}
+
+.income-list li:hover,
+.expanse-list li:hover {
+  transform: translateX(5px);
+}
+
+.lists span {
+  font-weight: 600;
+  margin-top: 10px;
+  display: block;
+  color: #555;
+}
+
+.delete-btn {
+  background: #dc3545;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 600;
+  padding: 5px 10px;
+  border-radius: 6px;
+  transition: background 0.3s;
+}
+
+.delete-btn:hover {
+  background: #b02a37;
+}
+
+/* Responsive */
+@media (max-width: 500px) {
+  .show-data {
+    flex-direction: column;
+  }
+}
