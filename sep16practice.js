@@ -46,7 +46,6 @@ const numbers = [2, 4, 6, 8, 10];
 // })
 
 // console.log(str)
---
 fetch("https://api.chucknorris.io/jokes/random")
   .then((res) => {
     if (!res.ok) {
