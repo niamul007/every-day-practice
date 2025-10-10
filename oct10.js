@@ -115,3 +115,5 @@ const productValues = Object.values(product);
 // }
 
 productKeys.forEach((item,idx)=> console.log(`"${item} : ${productValues[idx]}"`));
+// another solution for this with less memory consumtion they return the samething
+productKeys.forEach(key=> console.log(`"${key} : ${product[key]}"`) );
