@@ -37,8 +37,19 @@ const people = [
     { name: 'Tommy', age: 28, role: 'Analyst' }
 ];
 
+
+//understanding find 
+//find return a single value which matched with the condition and in false condtion it returns undefined 
 const firstOlderPerson = people.find((items=> items.age > 25));
 console.log(firstOlderPerson)
 
-// console.log(firstOlderPerson); 
-// Expected Output: { name: 'Rahim', age: 31, role: 'Engineer' }
+//understanding some 
+//some returns true or false based on the given condition 
+const useSome = people.some((items) => items.role === "Egineer");
+console.log(useSome);
+
+//understanding every 
+// if we wanna check multiple vlaue at once it also returns tru or false 
+
+const useEvery = people.every(item => item.age > 31);
+console.log(useEvery);
