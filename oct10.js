@@ -10,7 +10,7 @@ function testChaining(user) {
   const userName = user?.name || "Guest";
   return userName;
 }
-console.log(testChaining(user1));
+// console.log(testChaining(user1));
 // function getUsernameSafely(user) {
 //     // 1. user?.name: Safely tries to access 'name'.
 //     //    - If user is null, it returns undefined.
@@ -39,17 +39,17 @@ const people = [
 //understanding find
 //find return a single value which matched with the condition and in false condtion it returns undefined
 const firstOlderPerson = people.find((items) => items.age > 25);
-console.log(firstOlderPerson);
+// console.log(firstOlderPerson);
 
 //understanding some
 //some returns true or false based on the given condition
 const useSome = people.some((items) => items.role === "Egineer");
-console.log(useSome);
+// console.log(useSome);
 
 //understanding every
 // if we wanna check multiple vlaue at once it also returns tru or false
 const useEvery = people.every((item) => item.age > 31);
-console.log(useEvery);
+// console.log(useEvery);
 
 // Code Challenge 💡
 
@@ -77,3 +77,41 @@ function formatNames(names) {
   return newArr;
 }
 console.log(formatNames(namearr));
+
+
+// optional chaining with find 
+const people1 = [
+  { name: "Niamul", age: 24, role: "Student" },
+  { name: "Rahim", age: 31, role: "Engineer" },
+  { name: "Nishita", age: 26, role: "Manager" },
+  { name: "Tommy", age: 28, role: "Analyst" },
+];
+
+const combine = people1.find(item => item.name === "Nishita");
+console.log(combine?.role);
+
+
+
+const product = {
+    id: 'A123',
+    name: 'Laptop',
+    price: 1200,
+    inStock: true
+};
+
+// 1. Get an array of all keys from the 'product' object.
+const productKeys = Object.keys(product);
+
+// 2. Get an array of all values from the 'product' object.
+const productValues = Object.values(product);
+
+// 3. Loop through the 'productKeys' array and for each key, 
+//    log the key and its corresponding value from the 'product' object.
+// Example log: "id: A123"
+
+// ... your code here ...
+// for(let i =0; i <= productKeys.length -1; i++){
+//     console.log(`"${productKeys[i]} : ${productValues[i]}"`)
+// }
+
+productKeys.forEach((item,idx)=> console.log(`"${item} : ${productValues[idx]}"`));
