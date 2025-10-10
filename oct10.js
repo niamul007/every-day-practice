@@ -50,6 +50,17 @@ console.log(useSome);
 
 //understanding every 
 // if we wanna check multiple vlaue at once it also returns tru or false 
-
 const useEvery = people.every(item => item.age > 31);
 console.log(useEvery);
+
+// Code Challenge 💡
+
+const namearr = ['tom', 'alice', 'bob'];
+function formatNames(names) {
+    const mapping = names.map(item => {
+        return item.toUpperCase();
+    });
+    return mapping;
+}
+
+console.log(formatNames(namearr))
