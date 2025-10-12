@@ -6,3 +6,19 @@ const total = items.reduce((prev,curr)=> {
 console.log(total);
 
 //another practice
+
+const arr = [1, 2, 3];
+const obj = arr.reduce((prev,curr)=>{
+    prev[curr] = curr;
+    return prev;
+},{})
+
+console.log(obj);
+
+
+// find unique number from an arry 
+const duplicates = [5, 2, 8, 2, 5, 10];
+
+const newArr = new Set(duplicates);
+const uniqueArr = Array.from(newArr);
+console.log(uniqueArr)
