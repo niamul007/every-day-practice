@@ -25,3 +25,22 @@ console.log(final)
 
 
 
+//last practice 
+// 1. Create a new Map object.
+// 2. Use the .set() method to add two entries:
+//    - Key: 1, Value: 'Alex'
+//    - Key: 2, Value: 'Bob'
+// 3. Use the .forEach() method on the Map to iterate and log the output.
+
+// ... your code here ...
+
+const map = new Map();
+map.set(1,  'Alex');
+map.set(2,"Bob");
+// map always give back the primary data first which is the value so (value ,key ) not the key value bcz first peram always give the primary data which is the value 
+map.forEach((value ,key)=>{
+    console.log(`${key} : ${value}`);
+});
+
+
+
