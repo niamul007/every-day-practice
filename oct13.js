@@ -61,7 +61,7 @@ console.log(newMap.get(true))
 
 
 
- async function fetchData(id) {
+ function fetchData(id) {
     // Return a new Promise object
     return new Promise((resolve, reject) => {
         // Use setTimeout to simulate a network delay
@@ -80,7 +80,21 @@ console.log(newMap.get(true))
 
 // Consume the Promise using .then()
 // fetchData().then(/* ... log the result ... */);
-fetchData(1).then((res)=>{
-    return res;
-})
-.then((data) => console.log(data.name));
+// fetchData(1).then((res)=>{
+//     return res;
+// })
+// .then((data) => console.log(data.name));
+
+async function processData (id){
+    console.log("proceessing...")
+    try{
+        const getData = await fetchData(id);
+        console.log(`Genuin id is : ${id} and the data: ${getData}`);
+    }
+    catch (error) {
+        // 3. Catch handles the rejection/error
+        console.error(error.message); // Logs "You are incorrect buddy"
+    }
+}
+
+processData(3);
