@@ -3,24 +3,25 @@ const names = ['Tom', 'Alice', 'Tom', 'Bob', 'Alice'];
 // const newNames = [...duplicates]
 // newNames.filter((item)=> console.log(item))
 
-
 const seen = new Set();
-const duplicates = new Set();
-names.filter(items=>{
-    if(seen.has(items)){
-        duplicates.add(items)
+const duplicates =  new Set()
+
+names.filter(name=>{
+    if(seen.has(name)){
+        duplicates.add(name);
     }else{
-        seen.add(items)
+        seen.add(name);
     }
 })
+const final = [...duplicates]
+console.log(final)
 
-const final = [...duplicates];
-console.log(final);
+
+// const original = { a: 1, b: { c: 2 } };
+// let shalowCopy = {...original};
+// shalowCopy.b.c = 5;
+// console.log(shalowCopy.b.c);
+// console.log(original.b.c);
 
 
-const original = { a: 1, b: { c: 2 } };
-let shalowCopy = {...original};
-shalowCopy.b.c = 5;
-console.log(shalowCopy.b.c);
-console.log(original.b.c);
 
