@@ -44,3 +44,43 @@ map.forEach((value ,key)=>{
 
 
 
+const products = [
+    {name: 'A', price: 100}, 
+    {name: 'B', price: 50}, 
+    {name: 'C', price: 200}
+];
+
+// Write your single-line chain here:
+const expensiveNames = products.filter((item) => item.price > 100).map((item)=> item.name)
+
+console.log(expensiveNames);
+
+const newMap = new Map();
+newMap.set(true, "Yes");
+console.log(newMap.get(true))
+
+
+
+ async function fetchData(id) {
+    // Return a new Promise object
+    return new Promise((resolve, reject) => {
+        // Use setTimeout to simulate a network delay
+        setTimeout(() => {
+            // After 2 seconds, call the resolve function with the data
+            if(id===1){
+                resolve({name: "Niamul", age: "24"})
+            }else{
+                reject(new Error("You are incorrect buddy"))
+            }
+
+            // resolve(/* ... the data message ... */);
+        }, 2000); // 2000 milliseconds = 2 seconds
+    });
+}
+
+// Consume the Promise using .then()
+// fetchData().then(/* ... log the result ... */);
+fetchData(1).then((res)=>{
+    return res;
+})
+.then((data) => console.log(data.name));
