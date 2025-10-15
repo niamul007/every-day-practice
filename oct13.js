@@ -78,23 +78,39 @@ console.log(newMap.get(true))
     });
 }
 
-// Consume the Promise using .then()
-// fetchData().then(/* ... log the result ... */);
-// fetchData(1).then((res)=>{
-//     return res;
-// })
-// .then((data) => console.log(data.name));
+fetchData(1).then((res)=>{
+    return res;
+})
+.then((data) => console.log(data));
 
-async function processData (id){
-    console.log("proceessing...")
-    try{
-        const getData = await fetchData(id);
-        console.log(`Genuin id is : ${id} and the data: ${getData}`);
-    }
-    catch (error) {
-        // 3. Catch handles the rejection/error
-        console.error(error.message); // Logs "You are incorrect buddy"
-    }
+// async function processData (id){
+//     console.log("proceessing...")
+//     try{
+//         const getData = await fetchData(id);
+//         console.log(`Genuin id is : ${id} and the data: ${getData}`);
+//     }
+//     catch (error) {
+//         // 3. Catch handles the rejection/error
+//         console.error(error.message); // Logs "You are incorrect buddy"
+//     }
+// }
+
+// processData(3);
+
+
+const user = {
+    firstName: 'Alex',
+    job: 'Developer'
+};
+const obj = Object.entries(user);
+console.log(obj);
+for (const [key,value] of obj) {
+    console.log(`${key} : ${value}`)
 }
+// 1. Use Object.entries() to get an array of [key, value] pairs.
+//    (Expected: [['firstName', 'Alex'], ['job', 'Developer']])
 
-processData(3);
+// 2. Use a for...of loop to iterate over the entries.
+// 3. Use destructuring within the loop's declaration: for (const [key, value] of entries)
+
+// ... your code here ...
