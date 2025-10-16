@@ -64,4 +64,17 @@ const addSalesTax = addTax(0.08);
 console.log(addSalesTax(100)); // Expected: 108
 
 
+// 1. Define the Generator function (note the *)
+function* idGenerator() {
+   yield 1;
+   yield 2;
+   yield 3;
+}
 
+const idGen = idGenerator();
+
+console.log(idGen.next().value); // Expected: 1
+console.log(idGen.next().value); // Expected: 2
+console.log(idGen.next().value); // Expected: 3
+
+// ... your code here ...
