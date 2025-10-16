@@ -6,7 +6,7 @@ const multiply = (a) =>{
     }
 }
 
-console.log(multiply(2)(3)(4));
+// console.log(multiply(2)(3)(4));
 
 // const p1 = new Promise((resolve)=>{
 //     setTimeout(()=>{
@@ -41,10 +41,27 @@ const p2 = new Promise((resolve)=>{
     },2000)
 })
 
-Promise.all([p1,p2])
-.then((result)=>{
-    console.log(result);
-})
-.catch((error)=>{
-    console.log(error);
-})
+// Promise.all([p1,p2])
+// .then((result)=>{
+//     console.log(result);
+// })
+// .catch((error)=>{
+//     console.log(error);
+// });
+
+
+// Remember the structure: (a) => (b) => { ... }
+
+const addTax = (rate)=>{
+    return (price)=> {
+        let total = rate*price;
+        return price + total;
+    }
+} /* ... your function here ... */
+
+
+const addSalesTax = addTax(0.08);
+console.log(addSalesTax(100)); // Expected: 108
+
+
+
