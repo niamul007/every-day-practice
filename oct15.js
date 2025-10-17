@@ -69,6 +69,7 @@ function* idGenerator() {
    yield 1;
    yield 2;
    yield 3;
+   yield { value: undefined, done: true };
 }
 
 const idGen = idGenerator();
@@ -76,5 +77,6 @@ const idGen = idGenerator();
 console.log(idGen.next().value); // Expected: 1
 console.log(idGen.next().value); // Expected: 2
 console.log(idGen.next().value); // Expected: 3
+console.log(idGen.next().value)
 
 // ... your code here ...
