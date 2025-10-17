@@ -50,4 +50,23 @@ const myPromise = (situation,delay) => new Promise (resolve=>{
     }, delay);
 })
 
-myPromise("Overthinking",2000).then(res=> console.log(res)).catch(error=> console.log(error)).finally(()=> console.log("finally you recived the data or not i guess "))
+// myPromise("Overthinking",2000).then(res=> console.log(res)).catch(error=> console.log(error)).finally(()=> console.log("finally you recived the data or not i guess "))
+
+
+
+function* idGenerator() {
+    yield 1;
+    yield 2;
+    yield 3;
+    yield { value: undefined, done: true };
+}
+
+const idGen = idGenerator();
+
+// Call the generator three times (Done on Day 11)
+idGen.next(); 
+idGen.next(); 
+idGen.next(); 
+
+// Call .next() a fourth time and log the entire result object:
+console.log(idGen.next().value);
