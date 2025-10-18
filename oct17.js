@@ -1,3 +1,4 @@
+
 class Animal{
     constructor(name){
         this.name = name;
@@ -44,8 +45,38 @@ console.log(failedReasons); // Expected: ['P3 failure']
 
 //module practice 
 
-// Import the exported items
-import { greeting, calculate } from './oct16.js';
+// import { greeting, calculate } from './oct16.js';
 
-console.log(greeting); // Output: Hello
-console.log(calculate(5, 3)); // Output: 8
+// console.log(greeting); // Output: Hello
+// console.log(calculate(5, 3)); // Output: 8
+
+
+const promise = new Promise(resolve=>{
+    setTimeout(()=>{
+        resolve("Hi there i am having good times");
+    },2000)
+})
+
+promise.then(result => console.log(result)).catch(error=> console.log(error))
+
+
+const user = {
+    id: 1,
+    name: "Alex",
+    address: {
+        city: "London",
+        zip: 10101
+    }
+};
+
+// YOUR FIX: Use two spread operators for a deep, immutable update
+const updatedUser = {
+    ...user, // 1. Copy all top-level properties (id, name, address reference)
+    address: {
+        ...user.address, // 2. Copy all properties from the old address (zip)
+        city: "New York" // 3. Override ONLY the city property
+    }
+};
+
+console.log(updatedUser.address.city); // Output: New York (The new object is updated)
+console.log(user.address.city);        // Output: London (The original object is UNCHANGED)
