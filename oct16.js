@@ -50,7 +50,7 @@ const myPromise = (situation,delay) => new Promise (resolve=>{
     }, delay);
 })
 
-// myPromise("Overthinking",2000).then(res=> console.log(res)).catch(error=> console.log(error)).finally(()=> console.log("finally you recived the data or not i guess "))
+// myPromise("Overthinking",2000).then(res=> console.log(res))i think i .catch(error=> console.log(error)).finally(()=> console.log("finally you recived the data or not i guess "))
 
 
 
@@ -69,4 +69,16 @@ idGen.next();
 idGen.next(); 
 
 // Call .next() a fourth time and log the entire result object:
-console.log(idGen.next().value);
+// console.log(idGen.next().value);
+
+// Example of the steps:
+// 1. Math.random()            // e.g., 0.987654321
+// 2. .toString(36)            // e.g., "0.l4r2a9k" (Base 36 uses 0-9 and a-z)
+// 3. .substring(2, 9)         // e.g., "l4r2a9k" (Skips "0.")
+
+function generateRandomId() {
+    const random = Math.random().toString(36).substring(2,9)
+    return random;
+}
+console.log(generateRandomId()); // Expected: A 7-character alphanumeric string (e.g., 'a8d3hj4')
+// console.log(generateRandomId()); // Expected: A different 7-character string
