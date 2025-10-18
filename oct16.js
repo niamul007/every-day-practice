@@ -82,3 +82,11 @@ function generateRandomId() {
 }
 console.log(generateRandomId()); // Expected: A 7-character alphanumeric string (e.g., 'a8d3hj4')
 // console.log(generateRandomId()); // Expected: A different 7-character string
+
+// Export a variable
+export const greeting = "Hello"; 
+
+// Export a function
+export function calculate(a, b) {
+    return a + b;
+}
