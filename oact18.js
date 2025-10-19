@@ -49,3 +49,19 @@ async function getUserData(boolien) {
    }
 }
 getUserData(true);
+
+
+const products = [
+    { name: 'Laptop', price: 1200, inStock: true },
+    { name: 'Mouse', price: 25, inStock: false },
+    { name: 'Monitor', price: 300, inStock: true },
+    { name: 'Keyboard', price: 75, inStock: true },
+    { name: 'Webcam', price: 50, inStock: false }
+];
+
+// Expected calculation: 1200 + 300 + 75 = 1575
+
+// YOUR SOLUTION GOES HERE: Use a single, chained expression
+const totalInStockPrice =  products.filter(item => item.inStock === true).map(item=> item.price).reduce((acc,sum)=> acc+=sum)
+
+console.log(totalInStockPrice);
