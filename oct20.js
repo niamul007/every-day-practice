@@ -89,3 +89,15 @@ const countMap = numbers.reduce((accumulator, number) => {
 
 console.log(countMap);
 // Output: { '1': 3, '5': 2, '2': 4, '3': 1 }
+
+
+const namesWithDuplicates = [
+    'Alex', 'Maria', 'John', 'Alex', 'Sarah', 'Maria', 'John'
+];
+
+// Expected Result: ['Alex', 'Maria', 'John', 'Sarah']
+
+// YOUR SOLUTION GOES HERE: Use new Set() and the Spread Operator (...)
+const uniqueNames =[... new Set(namesWithDuplicates)]
+
+console.log(uniqueNames);
