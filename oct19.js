@@ -43,3 +43,28 @@ const guestUser = {
 user2.logName.call(guestUser)
 // 2. Use .apply() to call user1.logName immediately, setting 'this' to guestUser
 user1.logName.apply(user);
+
+
+function greet() {
+  console.log(this.animal, "typically sleep between", this.sleepDuration);
+}
+
+const obj = {
+  animal: "cats",
+  sleepDuration: "12 and 16 hours",
+};
+
+greet.call(obj); // cats typically sleep between 12 and 16 hours
+
+//The call() method of Function instances calls this function with a given this value and arguments provided individually.
+
+const nestedArray = [
+  [1, 2],
+  [3, 4],
+  [5, 6]
+];
+
+const oneArr = nestedArray.reduce((acc,each)=>{
+    return [...acc,...each]
+},[])
+console.log(oneArr)
