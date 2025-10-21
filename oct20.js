@@ -101,3 +101,28 @@ const namesWithDuplicates = [
 const uniqueNames =[... new Set(namesWithDuplicates)]
 
 console.log(uniqueNames);
+
+
+const car1 = {
+    make: 'Honda',
+    model: 'Civic',
+    mileage: 50000, 
+    color: 'Red'
+};
+
+const {mileage ,...filterData} = car1;
+console.log(filterData)
+
+
+
+const person1 = {
+    name: 'Sarah',
+    age: 25,
+    hobbies: ['reading', 'coding']
+};
+
+
+Object.freeze(person1)
+person1.age = 34;
+person1.ocopation = 'engineer'
+console.log(person1)
