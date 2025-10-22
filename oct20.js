@@ -71,24 +71,16 @@ const numbers = [1, 5, 2, 1, 3, 5, 1, 2, 2, 2];
 
 // YOUR SOLUTION GOES HERE: Use reduce() to create the tally object.
 
-const countMap = numbers.reduce((accumulator, number) => {
-    // 1. Check if the number is already a key in the accumulator object.
-    
-    if (accumulator[number]) {
-        // 2. If it EXISTS, increment its count by 1.
-        accumulator[number] = accumulator[number] + 1;
-    } else {
-        // 3. If it DOES NOT EXIST (first time seeing it), set its count to 1.
-        accumulator[number] = 1;
-    }
-    
-    // 4. Always return the updated accumulator for the next iteration.
-    return accumulator;
-    
-}, {}); // <--- We start with an empty object!
+const obj = numbers.reduce((acc,num)=>{
+  if(acc[num]){
+    acc[num] = acc[num] + 1;
+  }else{
+    acc[num] = 1;
+  }
+  return acc;
+},{})
 
-console.log(countMap);
-// Output: { '1': 3, '5': 2, '2': 4, '3': 1 }
+console.log(obj);
 
 
 const namesWithDuplicates = [
@@ -126,3 +118,5 @@ Object.freeze(person1)
 person1.age = 34;
 person1.ocopation = 'engineer'
 console.log(person1)
+
+
