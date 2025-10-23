@@ -1,3 +1,4 @@
+import { it } from "node:test";
 
 
 const inventoryData = [
@@ -8,12 +9,19 @@ const inventoryData = [
     { sku: 'E505', name: 'Sugar Packets', pricing: { unit_price: 5.00, discount: 0 }, stock_level: 250, tags: ['food'] }
 ];
 
-const filterData = inventoryData.filter(item => item.stock_level < 105 );
-const filterByTag = inventoryData.filter(item => !item.tags.includes('low_stock'));
-const finalPriceSet = filterByTag.map(item=>{
-    let finalPrice = item.pricing.unit_price * (1 - item.pricing.discount);
-    return `${item.sku},${item.name},${finalPrice}`
-})
-// console.log(filterData)
+// const filterData = inventoryData.filter(item => item.stock_level < 105 );
+// const filterByTag = inventoryData.filter(item => !item.tags.includes('low_stock'));
+// const finalPriceSet = filterByTag.map(item=>{
+//     let finalPrice = item.pricing.unit_price * (1 - item.pricing.discount);
+//     return `${item.sku},${item.name},${finalPrice}`
+// })
+// console.log(filterData).
+
 // console.log(filterByTag)
-console.log(finalPriceSet)
+// console.log(finalPriceSet);
+
+
+// 
+
+const filterData = inventoryData.filter( item => !item.tags.includes('low_stock')).filter(item => item.stock_level < 150).map(item=> ({sku: item.sku ,name: item.name , finalPrice: (item.pricing.unit_price * (1 - item.pricing.discount)).toFixed(2)}));
+console.log(filterData)
