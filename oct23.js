@@ -17,8 +17,9 @@ async function aggregateData() {
     }));
 
     const filterPost = [...posts].filter(item => item.id % 2 ==0).map(item=> item);
-    console.log("Users:", filterUser);
-    console.log("Posts:", filterPost);
+    // console.log("Users:", filterUser);
+    // console.log("Posts:", filterPost);
+    return { users: [filterUser], posts: [filterPost] }
   } catch (error) {
     console.error("Error loading data:", error);
   }
