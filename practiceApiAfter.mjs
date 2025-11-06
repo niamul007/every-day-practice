@@ -8,7 +8,8 @@ const hostname = "127.0.0.1";
 const __dirname = import.meta.dirname;
 
 function getFilePath(baseDir){
-    const filePath = path.join(baseDir , 'public', 'index.html');
+    const publicDirectory = path.join(baseDir , 'public') 
+    const filePath = path.join(publicDirectory, req.url === '/' ? 'index.html':req.url);
     return filePath;
 }
 
@@ -17,6 +18,7 @@ const server = http.createServer(async(req, res) => {
     const urlObj = new URL(req.url , `http://${req.headers.host}`);
     const queryObj = Object.fromEntries(urlObj.searchParams.entries());
     
+
     const absolutePath = getFilePath(__dirname);
     const content = await fs.readFile(absolutePath);
 

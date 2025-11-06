@@ -1,123 +1,47 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <title>Simple Form</title>
-    <style>
-        body { font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial; padding: 2rem; background:#f7fafc; color:#111827; }
-        .container { max-width: 720px; margin: 0 auto; background:#fff; padding:1.5rem; border-radius:8px; box-shadow:0 6px 18px rgba(15,23,42,0.06); }
-        form > * + * { margin-top: 0.75rem; }
-        label { display:block; font-weight:600; margin-bottom:0.25rem; }
-        input[type="text"],
-        input[type="email"],
-        input[type="password"],
-        input[type="date"],
-        select,
-        textarea { width:100%; padding:0.5rem; border:1px solid #d1d5db; border-radius:6px; background:#fff; box-sizing:border-box; }
-        .row { display:flex; gap:0.75rem; }
-        .row > * { flex:1; }
-        .controls { display:flex; gap:0.5rem; align-items:center; flex-wrap:wrap; }
-        .hint { font-size:0.875rem; color:#6b7280; }
-        button { background:#0369a1; color:#fff; border: none; padding:0.6rem 1rem; border-radius:6px; cursor:pointer; font-weight:600; }
-        button.secondary { background:#e5e7eb; color:#111827; }
-        .inline { display:inline-flex; align-items:center; gap:0.5rem; }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My Blog</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-    <main class="container">
-        <h1>Sign up</h1>
-        <p class="hint">A small demo form with common fields and client-side validation.</p>
+  <header>
+    <h1>My Blog</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="blog.html">Blog</a>
+    </nav>
+  </header>
 
-        <form id="demoForm" action="#" method="post" enctype="multipart/form-data" novalidate>
-            <div class="row">
-                <div>
-                    <label for="firstName">First name</label>
-                    <input id="firstName" name="firstName" type="text" autocomplete="given-name" required placeholder="Jane" />
-                </div>
-                <div>
-                    <label for="lastName">Last name</label>
-                    <input id="lastName" name="lastName" type="text" autocomplete="family-name" required placeholder="Doe" />
-                </div>
-            </div>
+  <section class="blog-list">
+    <article class="blog-card">
+      <img src="images/blog1.jpg" alt="Blog 1" />
+      <h2>How I Started Learning Web Development</h2>
+      <p>It all began with HTML and CSS — here’s how it went...</p>
+      <a href="blog.html?id=1" class="read-more">Read More</a>
+    </article>
 
-            <div>
-                <label for="email">Email</label>
-                <input id="email" name="email" type="email" autocomplete="email" required placeholder="you@example.com" />
-            </div>
+    <article class="blog-card">
+      <img src="images/blog2.jpg" alt="Blog 2" />
+      <h2>Top 5 JavaScript Projects for Beginners</h2>
+      <p>Start small but think big! These projects will level up your skills...</p>
+      <a href="blog.html?id=2" class="read-more">Read More</a>
+    </article>
 
-            <div class="row">
-                <div>
-                    <label for="password">Password</label>
-                    <input id="password" name="password" type="password" minlength="8" required placeholder="At least 8 characters" />
-                </div>
-                <div>
-                    <label for="dob">Date of birth</label>
-                    <input id="dob" name="dob" type="date" required />
-                </div>
-            </div>
+    <article class="blog-card">
+      <img src="images/blog3.jpg" alt="Blog 3" />
+      <h2>How to Stay Consistent as a Developer</h2>
+      <p>Consistency beats intensity — here's what I learned...</p>
+      <a href="blog.html?id=3" class="read-more">Read More</a>
+    </article>
+  </section>
 
-            <fieldset>
-                <legend>Gender</legend>
-                <label class="inline"><input type="radio" name="gender" value="female" required /> Female</label>
-                <label class="inline"><input type="radio" name="gender" value="male" /> Male</label>
-                <label class="inline"><input type="radio" name="gender" value="other" /> Other</label>
-            </fieldset>
+  <footer>
+    <p>© 2025 My Blog. All rights reserved.</p>
+  </footer>
 
-            <div>
-                <label for="role">Role</label>
-                <select id="role" name="role" required>
-                    <option value="">Select a role</option>
-                    <option>Developer</option>
-                    <option>Designer</option>
-                    <option>Product Manager</option>
-                    <option>Other</option>
-                </select>
-            </div>
-
-            <div>
-                <label for="bio">Short bio</label>
-                <textarea id="bio" name="bio" rows="4" placeholder="Tell us a little about yourself (optional)"></textarea>
-            </div>
-
-            <div>
-                <label for="avatar">Avatar (optional)</label>
-                <input id="avatar" name="avatar" type="file" accept="image/*" />
-            </div>
-
-            <div class="controls">
-                <button type="submit">Create account</button>
-                <button type="reset" class="secondary">Reset</button>
-                <span class="hint" id="status" aria-live="polite"></span>
-            </div>
-        </form>
-    </main>
-
-    <script>
-        // Minimal client-side handling: validate and simulate submit
-        const form = document.getElementById('demoForm');
-        const status = document.getElementById('status');
-
-        form.addEventListener('submit', (e) => {
-            e.preventDefault();
-            // built-in validation
-            if (!form.checkValidity()) {
-                form.reportValidity();
-                return;
-            }
-
-            // collect form data (example)
-            const data = new FormData(form);
-            const entries = Object.fromEntries(data.entries());
-            // Do not actually send anywhere in this demo
-            status.textContent = 'Form validated — data ready to send (see console).';
-            console.log('Form submission data:', entries);
-
-            // simulate success feedback
-            setTimeout(() => {
-                status.textContent = 'Account created (demo).';
-            }, 600);
-        });
-    </script>
+  <script src="main.js"></script>
 </body>
 </html>
