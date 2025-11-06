@@ -1,6 +1,6 @@
 import http from "node:http";
 import path from "node:path";
-import * as fs from 'node:fs/promises'; 
+import * as fs from 'node:fs/promises';
 
 const hostname = "127.0.0.1";
 const __dirname = import.meta.dirname;
