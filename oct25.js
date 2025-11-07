@@ -1,13 +1,10 @@
 import database from "./database.js";
+import http from 'node:http'
+const PORT = 8000;
+const hostname = '127.0.0.1'
 
-async function getData(){
-    try{
-        const response = await database();
-        console.log(response)
-    }
-    catch(error){
-        console.error(error.message)
-    }
-}
+const server = http.createServer((req,res)=>{
+    res.end("Iam here ")
+})
 
-getData()
+server.listen(PORT,hostname,()=> console.log("hi there iam you suced" + `http://${hostname}:${PORT}`))
