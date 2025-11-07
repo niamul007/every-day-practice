@@ -1,166 +1,340 @@
-/**
- * Expanded Travel Data for API practice.
- * Use this data to test filters on:
- * - /travel/continent/{name}
- * - /travel/country/{name}
- * - New custom filters like /travel/category/historical or /travel/rating/4.5
- */
-export const travelData = [
-    // 1. ASIA - Historical
-    {
-        name: "Great Wall of China",
-        location: "Huairou District",
-        country: "China",
-        continent: "Asia",
-        category: "Historical",
-        is_open_to_public: true,
-        average_rating: 4.8,
-        best_time_to_visit: "Spring or Autumn",
-        description: "A series of fortifications built across the historical northern borders of ancient Chinese states and Imperial China.",
-        uuid: "550e8400-e29b-41d4-a716-446655441001"
-    },
-    // 2. ASIA - Natural
-    {
-        name: "Mount Fuji",
-        location: "Honshu",
-        country: "Japan",
-        continent: "Asia",
-        category: "Natural",
-        is_open_to_public: true,
-        average_rating: 4.5,
-        best_time_to_visit: "July to September",
-        description: "Japan’s tallest mountain and an active stratovolcano, known for its symmetrical cone, often snow-capped.",
-        uuid: "550e8400-e29b-41d4-a716-446655441002"
-    },
-    // 3. EUROPE - Architectural
-    {
-        name: "Eiffel Tower",
-        location: "Paris",
-        country: "France",
-        continent: "Europe",
-        category: "Architectural",
-        is_open_to_public: true,
-        average_rating: 4.7,
-        best_time_to_visit: "Spring or Early Summer",
-        description: "A wrought-iron lattice tower on the Champ de Mars, a global cultural icon of France.",
-        uuid: "550e8400-e29b-41d4-a716-446655441003"
-    },
-    // 4. EUROPE - Natural
-    {
-        name: "Blue Lagoon",
-        location: "Grindavík",
-        country: "Iceland",
-        continent: "Europe",
-        category: "Natural",
-        is_open_to_public: true,
-        average_rating: 4.4,
-        best_time_to_visit: "Year-round",
-        description: "A geothermal spa famous for its milky-blue waters rich in silica and sulfur.",
-        uuid: "550e8400-e29b-41d4-a716-446655441004"
-    },
-    // 5. NORTH AMERICA - Natural
-    {
-        name: "Grand Canyon",
-        location: "Arizona",
-        country: "USA",
-        continent: "North America",
-        category: "Natural",
-        is_open_to_public: true,
-        average_rating: 4.9,
-        best_time_to_visit: "March to May and September to November",
-        description: "A steep-sided canyon carved by the Colorado River in Arizona, famous for its geological significance.",
-        uuid: "550e8400-e29b-41d4-a716-446655441005"
-    },
-    // 6. NORTH AMERICA - Man-made (Special Case: Not Public)
-    {
-        name: "Area 51",
-        location: "Nevada",
-        country: "USA",
-        continent: "North America",
-        category: "Restricted",
-        is_open_to_public: false,
-        average_rating: 3.5,
-        best_time_to_visit: "Never",
-        description: "A highly classified remote detachment of Edwards Air Force Base.",
-        uuid: "550e8400-e29b-41d4-a716-446655441006"
-    },
-    // 7. SOUTH AMERICA - Historical
-    {
-        name: "Machu Picchu",
-        location: "Cusco Region",
-        country: "Peru",
-        continent: "South America",
-        category: "Historical",
-        is_open_to_public: true,
-        average_rating: 4.9,
-        best_time_to_visit: "May to October (Dry Season)",
-        description: "A 15th-century Inca citadel set high in the Andes Mountains, famous for its sophisticated dry-stone walls.",
-        uuid: "550e8400-e29b-41d4-a716-446655441007"
-    },
-    // 8. SOUTH AMERICA - Natural
-    {
-        name: "Iguazu Falls",
-        location: "Paraná/Misiones",
-        country: "Brazil",
-        continent: "South America",
-        category: "Natural",
-        is_open_to_public: true,
-        average_rating: 4.8,
-        best_time_to_visit: "March to May or September to November",
-        description: "A system of 275 waterfalls on the Iguazu River, dividing the river into the upper and lower Iguazu.",
-        uuid: "550e8400-e29b-41d4-a716-446655441008"
-    },
-    // 9. AFRICA - Historical
-    {
-        name: "Pyramids of Giza",
-        location: "Giza Plateau",
-        country: "Egypt",
-        continent: "Africa",
-        category: "Historical",
-        is_open_to_public: true,
-        average_rating: 4.6,
-        best_time_to_visit: "October to April",
-        description: "Ancient stone structures built as tombs for pharaohs, among the largest structures ever built.",
-        uuid: "550e8400-e29b-41d4-a716-446655441009"
-    },
-    // 10. AFRICA - Natural
-    {
-        name: "Serengeti National Park",
-        location: "Mara Region",
-        country: "Tanzania",
-        continent: "Africa",
-        category: "Natural",
-        is_open_to_public: true,
-        average_rating: 4.7,
-        best_time_to_visit: "June to October (Dry Season)",
-        description: "Vast treeless plains housing millions of animals, known for the annual Great Migration.",
-        uuid: "550e8400-e29b-41d4-a716-446655441010"
-    },
-    // 11. OCEANIA - Architectural
-    {
-        name: "Sydney Opera House",
-        location: "Sydney",
-        country: "Australia",
-        continent: "Oceania",
-        category: "Architectural",
-        is_open_to_public: true,
-        average_rating: 4.6,
-        best_time_to_visit: "September to November or March to May",
-        description: "A multi-venue performing arts centre famous for its distinctive shell-like roofs.",
-        uuid: "550e8400-e29b-41d4-a716-446655441011"
-    },
-    // 12. OCEANIA - Natural
-    {
-        name: "Waitomo Glowworm Caves",
-        location: "Waitomo",
-        country: "New Zealand",
-        continent: "Oceania",
-        category: "Natural",
-        is_open_to_public: true,
-        average_rating: 4.5,
-        description: "A subterranean network famous for its boat ride under a ceiling lit by millions of glowworms.",
-        best_time_to_visit: "Year-round",
-        uuid: "550e8400-e29b-41d4-a716-446655441012"
-    }
+export const data = [
+  {
+    name: "Waitomo Glowworm Caves",
+    location: "Waitomo",
+    country: "New Zealand",
+    continent: "Oceania",
+    is_open_to_public: true,
+    details: [
+      {
+        fun_fact:
+          "The glowworms create a star-like effect on the cave ceiling using bioluminescence.",
+      },
+      {
+        description:
+          "A subterranean network of limestone caverns famous for its magical boat rides under twinkling glowworm-lit ceilings.",
+      },
+    ],
+    uuid: "550e8400-e29b-41d4-a716-446655440001"
+  },
+  {
+    name: "The Door to Hell",
+    location: "Darvaza",
+    country: "Turkmenistan",
+    continent: "Asia",
+    is_open_to_public: true,
+    details: [
+      {
+        fun_fact:
+          "This fiery crater has been burning since 1971 after a drilling accident.",
+      },
+      {
+        description:
+          "A continuously burning gas crater in the Karakum Desert, captivating adventurous travelers with its otherworldly glow.",
+      },
+    ],
+    uuid: "550e8400-e29b-41d4-a716-446655440002"
+  },
+  {
+    name: "Underwater Waterfall",
+    location: "Mauritius",
+    country: "Mauritius",
+    continent: "Africa",
+    is_open_to_public: true,
+    details: [
+      {
+        fun_fact:
+          "This optical illusion is caused by sand and silt deposits under the water.",
+      },
+      {
+        description:
+          "An incredible illusion off the island’s coast, appearing as if water cascades into a vast underwater abyss.",
+      },
+    ],
+    uuid: "550e8400-e29b-41d4-a716-446655440003"
+  },
+  {
+    name: "Giant's Causeway",
+    location: "County Antrim",
+    country: "Northern Ireland",
+    continent: "Europe",
+    is_open_to_public: true,
+    details: [
+      {
+        fun_fact:
+          "The hexagonal columns are formed by ancient volcanic activity.",
+      },
+      {
+        description:
+          "A UNESCO World Heritage Site featuring striking hexagonal basalt columns along the scenic Northern Irish coastline.",
+      },
+    ],
+    uuid: "550e8400-e29b-41d4-a716-446655440004"
+  },
+  {
+    name: "Fly Geyser",
+    location: "Nevada",
+    country: "USA",
+    continent: "North America",
+    is_open_to_public: false,
+    details: [
+      {
+        fun_fact:
+          "The geyser was accidentally created by well drilling in 1964.",
+      },
+      {
+        description:
+          "A colorful, continuously spouting geothermal formation with vibrant mineral deposits on a private Nevada ranch.",
+      },
+    ],
+    uuid: "550e8400-e29b-41d4-a716-446655440005"
+  },
+  {
+    name: "Kjeragbolten",
+    location: "Rogaland",
+    country: "Norway",
+    continent: "Europe",
+    is_open_to_public: true,
+    details: [
+      {
+        fun_fact:
+          "A giant boulder wedged in a mountain crevice with a 984-meter drop beneath it.",
+      },
+      {
+        description:
+          "A legendary hiking destination where brave visitors can stand on a rock suspended between two cliffs.",
+      },
+    ],
+    uuid: "550e8400-e29b-41d4-a716-446655440006"
+  },
+  {
+    name: "The Wave",
+    location: "Arizona",
+    country: "USA",
+    continent: "North America",
+    is_open_to_public: true,
+    details: [
+      {
+        fun_fact: "The sandstone formations look like waves frozen in time.",
+      },
+      {
+        description:
+          "A sought-after hiking spot in the Coyote Buttes area, prized for its surreal, undulating sandstone formations.",
+      },
+    ],
+    uuid: "550e8400-e29b-41d4-a716-446655440007"
+  },
+  {
+    name: "Socotra Island",
+    location: "Socotra",
+    country: "Yemen",
+    continent: "Asia",
+    is_open_to_public: true,
+    details: [
+      {
+        fun_fact: "Home to alien-looking dragon blood trees.",
+      },
+      {
+        description:
+          "A remote and biologically diverse island, known for its unique flora and striking desert landscapes.",
+      },
+    ],
+    uuid: "550e8400-e29b-41d4-a716-446655440008"
+  },
+  {
+    name: "Pamukkale",
+    location: "Denizli",
+    country: "Turkey",
+    continent: "Asia",
+    is_open_to_public: true,
+    details: [
+      {
+        fun_fact:
+          "The white terraces are made of travertine, a mineral deposited by thermal springs.",
+      },
+      {
+        description:
+          "A famed natural site boasting tiered, cotton-white terraces and warm mineral-rich waters for bathing.",
+      },
+    ],
+    uuid: "550e8400-e29b-41d4-a716-446655440009"
+  },
+  {
+    name: "Cano Cristales",
+    location: "Meta",
+    country: "Colombia",
+    continent: "South America",
+    is_open_to_public: true,
+    details: [
+      {
+        fun_fact:
+          "Known as the 'Liquid Rainbow,' it glows in five colors during certain seasons.",
+      },
+      {
+        description:
+          "A mesmerizing river whose aquatic plants and algae create a kaleidoscope of vibrant hues.",
+      },
+    ],
+    uuid: "550e8400-e29b-41d4-a716-446655440010",
+  },
+  {
+    name: "Red Beach",
+    location: "Panjin",
+    country: "China",
+    continent: "Asia",
+    is_open_to_public: true,
+    details: [
+      {
+        fun_fact:
+          "The beach gets its vibrant red color from the plant Suaeda salsa.",
+      },
+      {
+        description:
+          "A striking coastal wetland carpeted by red seaweed, popular for its unique color and birdlife.",
+      },
+    ],
+    uuid: "550e8400-e29b-41d4-a716-446655440011",
+  },
+  {
+    name: "Devil's Pool",
+    location: "Victoria Falls",
+    country: "Zambia",
+    continent: "Africa",
+    is_open_to_public: true,
+    details: [
+      {
+        fun_fact: "A natural infinity pool at the edge of a waterfall.",
+      },
+      {
+        description:
+          "A thrilling dip right on the brink of Victoria Falls, offering daredevils a breathtaking view of the drop.",
+      },
+    ],
+    uuid: "550e8400-e29b-41d4-a716-446655440012",
+  },
+  {
+    name: "Mendenhall Ice Caves",
+    location: "Juneau",
+    country: "USA",
+    continent: "North America",
+    is_open_to_public: false,
+    details: [
+      {
+        fun_fact:
+          "The caves are formed under a glacier, creating glowing blue tunnels.",
+      },
+      {
+        description:
+          "A hidden world of otherworldly, icy blue chambers inside the Mendenhall Glacier, accessible only by adventurous treks.",
+      },
+    ],
+    uuid: "550e8400-e29b-41d4-a716-446655440013",
+  },
+  {
+    name: "Moeraki Boulders",
+    location: "Koekohe Beach",
+    country: "New Zealand",
+    continent: "Oceania",
+    is_open_to_public: true,
+    details: [
+      {
+        fun_fact:
+          "These spherical boulders were formed from calcite over millions of years.",
+      },
+      {
+        description:
+          "Mysterious, perfectly round boulders scattered along a picturesque coastline, steeped in Māori legend.",
+      },
+    ],
+    uuid: "550e8400-e29b-41d4-a716-446655440014",
+  },
+  {
+    name: "Magnetic Hill",
+    location: "Ladakh",
+    country: "India",
+    continent: "Asia",
+    is_open_to_public: true,
+    details: [
+      {
+        fun_fact: "Vehicles appear to roll uphill due to an optical illusion.",
+      },
+      {
+        description:
+          "A perplexing stretch of road in the Himalayas where gravity seemingly takes a puzzling turn.",
+      },
+    ],
+    uuid: "550e8400-e29b-41d4-a716-446655440015",
+  },
+  {
+    name: "Cueva de los Cristales",
+    location: "Chihuahua",
+    country: "Mexico",
+    continent: "North America",
+    is_open_to_public: false,
+    details: [
+      {
+        fun_fact: "Home to giant gypsum crystals, some over 10 meters long.",
+      },
+      {
+        description:
+          "An astonishing cavern filled with massive, glimmering selenite crystals hidden deep beneath the Earth’s surface.",
+      },
+    ],
+    uuid: "550e8400-e29b-41d4-a716-446655440016",
+  },
+  {
+    name: "Snake Island",
+    location: "Ilha da Queimada Grande",
+    country: "Brazil",
+    continent: "South America",
+    is_open_to_public: false,
+    details: [
+      {
+        fun_fact:
+          "Home to one of the most venomous snakes in the world, the golden lancehead.",
+      },
+      {
+        description:
+          "A secluded and highly restricted island swarming with venomous snakes, enforcing a strict no-visitor policy.",
+      },
+    ],
+    uuid: "550e8400-e29b-41d4-a716-446655440017",
+  },
+  {
+    name: "North Sentinel Island",
+    location: "Andaman Islands",
+    country: "India",
+    continent: "Asia",
+    is_open_to_public: false,
+    details: [
+      {
+        fun_fact:
+          "Inhabited by an uncontacted tribe, it is completely off-limits to visitors.",
+      },
+      {
+        description:
+          "A remote island in the Bay of Bengal, home to an isolated tribe who protect their way of life fiercely.",
+      },
+    ],
+    uuid: "550e8400-e29b-41d4-a716-446655440018",
+  },
+  {
+    name: "Mount Mihara Volcano Jail",
+    location: "Izu Oshima Island",
+    country: "Japan",
+    continent: "Asia",
+    is_open_to_public: false,
+    details: [
+      {
+        fun_fact:
+          "A former volcanic prison, it is no longer operational but remains restricted.",
+      },
+      {
+        description:
+          "A historical penal facility once perched on an active volcano, now off-limits and shrouded in intrigue.",
+      },
+    ],
+    uuid: "550e8400-e29b-41d4-a716-446655440019",
+  }
 ];
-export default travelData;
+export default data;
