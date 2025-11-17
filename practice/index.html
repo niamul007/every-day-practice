@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Chat with HuggingFace</title>
+  <style>
+    body { font-family: Arial; padding: 20px; }
+    #answer { margin-top: 20px; }
+    input, button { padding: 8px; font-size: 16px; }
+  </style>
+</head>
+<body>
+  <h1>Chat with HuggingFace</h1>
+  <form id="chatForm">
+    <input type="text" id="question" placeholder="Ask something..." required />
+    <button type="submit">Send</button>
+  </form>
+  <div id="answer"></div>
+
+  <script>
+    const form = document.getElementById("chatForm");
+    const answerDiv = document.getElementById("answer");
+
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const question = document.getElementById("question").value;
+      answerDiv.textContent = "Thinking...";
+
+      try {
+        const res = await fetch("/ask", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ question })
+        });
+
+        const data = await res.json();
+        if (data.error) throw new Error(data.error);
+
+        answerDiv.textContent = data.answer;
+      } catch (err) {
+        answerDiv.textContent = "Error: " + err.message;
+      }
+    });
+  </script>
+</body>
+</html>
