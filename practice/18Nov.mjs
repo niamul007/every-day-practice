@@ -2,9 +2,7 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import * as fs from 'fs/promises'
 import http from 'node:http'
-import { url } from 'node:inspector';
 import getContent from '../getContentType.mjs';
-import e from 'express';
 
 const PORT = 8000;
 const hostname = '127.0.0.1';
@@ -34,4 +32,6 @@ const server = http.createServer(async(req,res)=>{
 
 server.listen(PORT,hostname,()=>{
     console.log(`http://${hostname}:${PORT}`)
-})
+});
+
+//try express here 
