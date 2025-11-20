@@ -18,14 +18,42 @@ function getFile(requestedUrl) {
 const server = http.createServer(async (req, res) => {
   const urlObj = new URL(req.url, `http://${hostname}`);
   const requestedUrl = urlObj.pathname;
+
+  // ✅ Handle POST /submit
+  if (requestedUrl === "/submit" && req.method === "POST") {
+    let body = "";
+    for await (const chunk of req) {
+      body += chunk;
+    }
+
+    console.log("Raw POST data:", body);
+
+    // Convert URL-encoded form data → object
+    const params = new URLSearchParams(body);
+    const obj = Object.fromEntries(params);
+
+    console.log("Parsed:", obj);
+
+    // res.statusCode = 201;
+    // res.setHeader("Content-Type", "application/json");
+    // res.end(JSON.stringify(obj)); // RETURN so no second response
+    return 
+  }
+
+  // ✅ Serve normal HTML files
   const absolutePath = getFile(requestedUrl);
   const ext = path.extname(absolutePath);
   const contentType = getContent(ext);
-  const content = await fs.readFile(absolutePath);
 
-  res.statusCode = 200;
-  res.setHeader("Content-Type", contentType);
-  res.end(content);
+  try {
+    const content = await fs.readFile(absolutePath);
+    res.statusCode = 200;
+    res.setHeader("Content-Type", contentType);
+    res.end(content);
+  } catch (err) {
+    res.statusCode = 404;
+    res.end("File not found");
+  }
 });
 
 server.listen(PORT, hostname, () => {
