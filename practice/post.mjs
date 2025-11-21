@@ -20,25 +20,49 @@ const server = http.createServer(async (req, res) => {
   const requestedUrl = urlObj.pathname;
 
   // ✅ Handle POST /submit
+  // if (requestedUrl === "/submit" && req.method === "POST") {
+  //   let body = "";
+  //   for await (const chunk of req) {
+  //     body += chunk;
+  //   }
+
+  //   console.log("Raw POST data:", body);
+
+  //   // Convert URL-encoded form data → object
+  //   const params = new URLSearchParams(body);
+  //   const obj = Object.fromEntries(params);
+
+  //   console.log("Parsed:", obj);
+
+  //   // res.statusCode = 201;
+  //   // res.setHeader("Content-Type", "application/json");
+  //   // res.end(JSON.stringify(obj)); // RETURN so no second response
+  //   return 
+  // }
   if (requestedUrl === "/submit" && req.method === "POST") {
-    let body = "";
-    for await (const chunk of req) {
-      body += chunk;
-    }
-
-    console.log("Raw POST data:", body);
-
-    // Convert URL-encoded form data → object
-    const params = new URLSearchParams(body);
-    const obj = Object.fromEntries(params);
-
-    console.log("Parsed:", obj);
-
-    // res.statusCode = 201;
-    // res.setHeader("Content-Type", "application/json");
-    // res.end(JSON.stringify(obj)); // RETURN so no second response
-    return 
+  let body = "";
+  for await (const chunk of req) {
+    body += chunk;
   }
+
+  console.log("Raw POST data:", body);
+
+  const params = new URLSearchParams(body);
+  const obj = Object.fromEntries(params);
+
+  console.log("Parsed:", obj);
+
+  // ✅ Send response back
+  res.statusCode = 200;
+  res.setHeader("Content-Type", "application/json");
+  res.end(JSON.stringify({
+    status: "success",
+    received: obj
+  }));
+
+  return;
+}
+
 
   // ✅ Serve normal HTML files
   const absolutePath = getFile(requestedUrl);
